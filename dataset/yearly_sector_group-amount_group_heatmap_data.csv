@@ -1,0 +1,71 @@
+year,group,<100K,100K-1M,1M-5M,5M-10M,10M-100M,>100M
+2019,Data and Information System,21,11,16,9,5,1
+2019,"Engineering, and Construction",4,8,8,1,2,0
+2019,Environment and Agriculture,10,3,7,2,10,0
+2019,"Finance, Business, and Marketing",22,22,29,7,25,3
+2019,Health and Biotech,23,19,24,8,13,2
+2019,"Media, Communications, and Entertainment",1,0,2,0,2,0
+2019,Others,9,5,4,0,1,0
+2019,Services and Security,14,4,15,2,5,1
+2019,Technology and Software,40,36,47,10,22,1
+2019,Travel and Logistics,9,7,2,1,2,0
+2020,Data and Information System,17,17,15,9,6,1
+2020,"Engineering, and Construction",3,3,5,2,1,1
+2020,Environment and Agriculture,11,5,10,6,5,0
+2020,"Finance, Business, and Marketing",20,32,23,15,23,2
+2020,Health and Biotech,20,16,32,24,20,1
+2020,"Media, Communications, and Entertainment",4,2,2,2,0,0
+2020,Others,1,2,7,2,0,0
+2020,Services and Security,13,6,8,3,7,0
+2020,Technology and Software,34,26,33,15,18,1
+2020,Travel and Logistics,4,1,3,2,1,1
+2021,Data and Information System,15,15,17,7,21,5
+2021,"Engineering, and Construction",2,2,5,4,1,0
+2021,Environment and Agriculture,9,6,18,6,10,3
+2021,"Finance, Business, and Marketing",29,20,52,11,39,15
+2021,Health and Biotech,22,20,29,8,21,4
+2021,"Media, Communications, and Entertainment",6,3,4,3,0,0
+2021,Others,5,0,2,2,4,0
+2021,Services and Security,2,4,12,6,8,5
+2021,Technology and Software,26,36,58,23,43,11
+2021,Travel and Logistics,4,3,5,1,6,3
+2022,Data and Information System,1,0,11,6,7,2
+2022,"Engineering, and Construction",1,2,7,3,7,0
+2022,Environment and Agriculture,1,1,4,9,11,3
+2022,"Finance, Business, and Marketing",8,12,34,11,39,5
+2022,Health and Biotech,1,1,20,8,12,1
+2022,"Media, Communications, and Entertainment",2,5,4,2,1,0
+2022,Others,1,1,2,0,3,0
+2022,Services and Security,1,2,8,8,9,3
+2022,Technology and Software,7,19,37,16,40,6
+2022,Travel and Logistics,2,1,4,1,3,1
+2023,Data and Information System,3,2,19,4,20,2
+2023,"Engineering, and Construction",1,0,1,1,5,0
+2023,Environment and Agriculture,1,0,8,8,21,1
+2023,"Finance, Business, and Marketing",2,1,14,4,16,2
+2023,Health and Biotech,3,0,13,6,11,3
+2023,"Media, Communications, and Entertainment",0,0,2,0,2,0
+2023,Others,0,0,0,0,1,0
+2023,Services and Security,0,1,4,2,4,1
+2023,Technology and Software,4,1,18,9,18,5
+2023,Travel and Logistics,0,0,2,0,2,1
+2024,Data and Information System,4,0,21,5,9,3
+2024,"Engineering, and Construction",3,0,6,1,6,0
+2024,Environment and Agriculture,2,0,12,4,12,2
+2024,"Finance, Business, and Marketing",1,0,11,4,14,3
+2024,Health and Biotech,5,2,18,4,16,1
+2024,"Media, Communications, and Entertainment",1,0,4,1,2,0
+2024,Others,2,1,1,2,1,0
+2024,Services and Security,1,0,6,2,6,0
+2024,Technology and Software,4,1,14,11,13,7
+2024,Travel and Logistics,0,0,0,1,3,1
+2025,Data and Information System,1,0,0,0,1,0
+2025,"Engineering, and Construction",0,0,0,0,0,0
+2025,Environment and Agriculture,0,0,1,0,2,0
+2025,"Finance, Business, and Marketing",0,0,1,0,2,0
+2025,Health and Biotech,2,0,1,1,3,1
+2025,"Media, Communications, and Entertainment",0,0,0,0,0,0
+2025,Others,0,0,1,0,0,1
+2025,Services and Security,0,0,0,0,0,0
+2025,Technology and Software,0,0,5,0,3,0
+2025,Travel and Logistics,0,0,1,0,0,0
