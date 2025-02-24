@@ -1,0 +1,62 @@
+<html>
+<head>
+<title>dealsize_analysis.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+.s3 { color: #808080;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+dealsize_analysis.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">matplotlib</span>
+<span class="s0">import </span><span class="s1">pandas </span><span class="s0">as </span><span class="s1">pd</span>
+<span class="s0">import </span><span class="s1">matplotlib.pyplot </span><span class="s0">as </span><span class="s1">plt</span>
+<span class="s0">import </span><span class="s1">seaborn </span><span class="s0">as </span><span class="s1">sns</span>
+
+<span class="s1">matplotlib.use(</span><span class="s2">&quot;TkAgg&quot;</span><span class="s1">)  </span><span class="s3"># Set the backend to TkAgg</span>
+
+<span class="s0">def </span><span class="s1">analyze_deal_size_evolution():</span>
+    <span class="s3"># Load the dataset</span>
+    <span class="s1">deals = pd.read_csv(</span><span class="s2">&quot;datasets/deals.csv&quot;</span><span class="s1">)</span>
+
+    <span class="s3"># Ensure 'date' column is in datetime format (Modify column name if necessary)</span>
+    <span class="s1">deals[</span><span class="s2">'date'</span><span class="s1">] = pd.to_datetime(deals[</span><span class="s2">'date'</span><span class="s1">])</span>
+
+    <span class="s3"># Extract the quarter (format: YYYY-Q#)</span>
+    <span class="s1">deals[</span><span class="s2">'quarter'</span><span class="s1">] = deals[</span><span class="s2">'date'</span><span class="s1">].dt.to_period(</span><span class="s2">'Q'</span><span class="s1">).astype(str)</span>
+
+    <span class="s3"># Filter necessary columns</span>
+    <span class="s1">deals = deals[[</span><span class="s2">'quarter'</span><span class="s0">, </span><span class="s2">'roundType'</span><span class="s0">, </span><span class="s2">'amount'</span><span class="s1">]].dropna()</span>
+
+    <span class="s3"># Calculate average deal size per funding stage per quarter</span>
+    <span class="s1">avg_deal_size = deals.groupby([</span><span class="s2">'quarter'</span><span class="s0">, </span><span class="s2">'roundType'</span><span class="s1">])[</span><span class="s2">'amount'</span><span class="s1">].mean().reset_index()</span>
+
+    <span class="s3"># Plot using Seaborn</span>
+    <span class="s1">plt.figure(figsize=(</span><span class="s4">12</span><span class="s0">, </span><span class="s4">6</span><span class="s1">))</span>
+    <span class="s1">sns.lineplot(data=avg_deal_size</span><span class="s0">, </span><span class="s1">x=</span><span class="s2">'quarter'</span><span class="s0">, </span><span class="s1">y=</span><span class="s2">'amount'</span><span class="s0">, </span><span class="s1">hue=</span><span class="s2">'roundType'</span><span class="s0">, </span><span class="s1">marker=</span><span class="s2">'o'</span><span class="s0">, </span><span class="s1">palette=</span><span class="s2">'viridis'</span><span class="s1">)</span>
+
+    <span class="s3"># Customize the plot</span>
+    <span class="s1">plt.title(</span><span class="s2">&quot;Average Deal Size per Funding Stage Over Time&quot;</span><span class="s1">)</span>
+    <span class="s1">plt.xlabel(</span><span class="s2">&quot;Quarter&quot;</span><span class="s1">)</span>
+    <span class="s1">plt.ylabel(</span><span class="s2">&quot;Average Deal Size (USD)&quot;</span><span class="s1">)</span>
+    <span class="s1">plt.xticks(rotation=</span><span class="s4">45</span><span class="s0">, </span><span class="s1">fontsize=</span><span class="s4">8</span><span class="s1">)  </span><span class="s3"># Adjust rotation and font size</span>
+    <span class="s1">plt.legend(title=</span><span class="s2">&quot;Funding Stage&quot;</span><span class="s0">, </span><span class="s1">loc=</span><span class="s2">&quot;best&quot;</span><span class="s1">)</span>
+    <span class="s1">plt.grid(</span><span class="s0">True</span><span class="s1">)</span>
+
+    <span class="s1">plt.show()</span>
+
+
+<span class="s3"># Run only if executed directly</span>
+<span class="s0">if </span><span class="s1">__name__ == </span><span class="s2">&quot;__main__&quot;</span><span class="s1">:</span>
+    <span class="s1">analyze_deal_size_evolution()</span>
+</pre>
+</body>
+</html>

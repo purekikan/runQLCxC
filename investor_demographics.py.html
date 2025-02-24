@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>investor_demographics.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+investor_demographics.py</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">pandas </span><span class="s0">as </span><span class="s1">pd</span>
+<span class="s0">import </span><span class="s1">matplotlib.pyplot </span><span class="s0">as </span><span class="s1">plt</span>
+
+<span class="s0">def </span><span class="s1">plot_investor_demographics():</span>
+    <span class="s2"># Load dataset from CSV</span>
+    <span class="s1">df = pd.read_csv(</span><span class="s3">&quot;datasets/dealInvestor.csv&quot;</span><span class="s1">)</span>
+
+    <span class="s2"># Categorize investor regions</span>
+    <span class="s1">df[</span><span class="s3">'Investor Region'</span><span class="s1">] = df[</span><span class="s3">'investorCountry'</span><span class="s1">].apply(</span><span class="s0">lambda </span><span class="s1">x: x </span><span class="s0">if </span><span class="s1">x </span><span class="s0">in </span><span class="s1">[</span><span class="s3">'Canada'</span><span class="s0">, </span><span class="s3">'USA'</span><span class="s1">] </span><span class="s0">else </span><span class="s3">'International'</span><span class="s1">)</span>
+
+    <span class="s2"># Define custom order</span>
+    <span class="s1">category_order = [</span><span class="s3">&quot;Canada&quot;</span><span class="s0">, </span><span class="s3">&quot;USA&quot;</span><span class="s0">, </span><span class="s3">&quot;International&quot;</span><span class="s1">]</span>
+
+    <span class="s2"># Count number of investments per region and round type</span>
+    <span class="s1">investment_counts = df.groupby([</span><span class="s3">'Investor Region'</span><span class="s0">, </span><span class="s3">'roundType'</span><span class="s1">]).size().unstack(fill_value=</span><span class="s4">0</span><span class="s1">)</span>
+
+    <span class="s2"># Reindex to enforce order</span>
+    <span class="s1">investment_counts = investment_counts.reindex(category_order)</span>
+
+    <span class="s2"># Plot</span>
+    <span class="s1">investment_counts.plot(kind=</span><span class="s3">'bar'</span><span class="s0">, </span><span class="s1">stacked=</span><span class="s0">True, </span><span class="s1">figsize=(</span><span class="s4">10</span><span class="s0">, </span><span class="s4">6</span><span class="s1">)</span><span class="s0">, </span><span class="s1">colormap=</span><span class="s3">'viridis'</span><span class="s1">)</span>
+
+    <span class="s1">plt.xlabel(</span><span class="s3">&quot;Investor Region&quot;</span><span class="s1">)</span>
+    <span class="s1">plt.ylabel(</span><span class="s3">&quot;Number of Investments&quot;</span><span class="s1">)</span>
+    <span class="s1">plt.title(</span><span class="s3">&quot;Investor Demographics &amp; Behavior&quot;</span><span class="s1">)</span>
+    <span class="s1">plt.legend(title=</span><span class="s3">&quot;Round Type&quot;</span><span class="s1">)</span>
+    <span class="s1">plt.xticks(rotation=</span><span class="s4">0</span><span class="s1">)</span>
+    <span class="s1">plt.grid(axis=</span><span class="s3">'y'</span><span class="s0">, </span><span class="s1">linestyle=</span><span class="s3">'--'</span><span class="s0">, </span><span class="s1">alpha=</span><span class="s4">0.7</span><span class="s1">)</span>
+
+    <span class="s2"># Show the plot</span>
+    <span class="s1">plt.show()</span>
+
+<span class="s2"># Run only if executed directly</span>
+<span class="s0">if </span><span class="s1">__name__ == </span><span class="s3">&quot;__main__&quot;</span><span class="s1">:</span>
+    <span class="s1">plot_investor_demographics()</span></pre>
+</body>
+</html>
